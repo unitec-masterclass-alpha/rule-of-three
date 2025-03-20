@@ -15,6 +15,7 @@ private:
     unsigned short int _age;
 public:
     Person(const char* name, unsigned short int age);
+    ~Person();
     string GetName()const;
     unsigned short int GetAge()const;
     bool IsMinor()const;

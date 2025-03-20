@@ -14,6 +14,10 @@ Person::Person(const char *name, unsigned short int age): _age(age) {
         strcpy(_name, name);
 }
 
+Person::~Person() {
+        delete[] _name;
+}
+
 string Person::GetName() const {
         return _name;
 }
