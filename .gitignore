@@ -30,6 +30,7 @@
 *.exe
 *.out
 *.app
+memory-tests
 
 cmake-build-debug/
 .idea/
