@@ -3,7 +3,7 @@ CC = g++
 
 
 sorting:	main person
-	$(CC) $(CLAGS) main.o sort.o -o memory-tests
+	$(CC) $(CLAGS) main.o person.o -o cmake-build-debug/memory-tests
 
 main:	main.cpp person.h
 	$(CC) $(CFLAGS) -c main.cpp
@@ -13,4 +13,4 @@ person:	person.cpp person.h
 
 
 clean:
-	rm memory-tests *.o
+	rm -f memory-tests *.o cmake-build-debug/memory-tests

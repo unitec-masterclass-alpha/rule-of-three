@@ -13,18 +13,19 @@ int main() {
     Person juan("Juan Angel", 17);
     cout << juan.GetName() << endl;
     cout << juan.GetAge() << endl;
-    cout << endl;
     cout << (juan.IsMinor() ? "Minor" : "Adult") << endl;
+    cout << endl;
 
-    Person john("", 0);
+    Person john("Jonathaniel", 0);
     john = juan;
     cout << john.GetName() << endl;
     cout << john.GetAge() << endl;
-    cout << endl;
     cout << (john.IsMinor() ? "Minor": "Adult") << endl;
+    cout << endl;
 
     cout << "Function Call ------" << endl;
     PrintAll(juan);
+    cout << endl;
     return 0;
 }
 void PrintAll(Person person) {
