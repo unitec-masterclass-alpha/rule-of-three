@@ -9,7 +9,7 @@
 
 using std::string;
 
-Person::Person(char *name, unsigned short int age): _age(age) {
+Person::Person(const char *name, unsigned short int age): _age(age) {
         _name = new char[strlen(name) + 1];
         strcpy(_name, name);
 }
