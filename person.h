@@ -5,9 +5,19 @@
 #ifndef PERSON_H
 #define PERSON_H
 
+#include <string>
 
+using std::string;
 
 class Person {
+private:
+    char* _name;
+    unsigned short int _age;
+public:
+    Person(char* name, unsigned short int age);
+    string GetName()const;
+    unsigned short int GetAge()const;
+    bool IsMinor()const;
 
 
 };
