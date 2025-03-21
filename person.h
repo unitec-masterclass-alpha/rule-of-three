@@ -15,6 +15,7 @@ private:
     unsigned short int _age;
 public:
     Person(const char* name, unsigned short int age);
+    Person(const Person& other);
     ~Person();
     const Person& operator=(const Person& other);
     string GetName()const;

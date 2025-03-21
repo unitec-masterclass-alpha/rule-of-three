@@ -346,3 +346,90 @@ Juan Angel
 ==105== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 ```
+
+
+## Part 3 of the Rule of Three
+Adding the copy assignment operator overload to the class.
+
+The updated `person.h`
+```c++
+class Person {
+private:
+    char* _name;
+    unsigned short int _age;
+public:
+    Person(const char* name, unsigned short int age);
+    Person(const Person& other);
+    ~Person();
+    const Person& operator=(const Person& other);
+    string GetName()const;
+    unsigned short int GetAge()const;
+    bool IsMinor()const;
+
+
+};
+
+
+```
+
+
+Compiling and running...
+
+```shell
+root@dc14b070ab1c:/development/unitec/master-class-alpha/rule-of-three# make
+g++ -g -std=c++20 -Wall -c main.cpp
+g++ -g -std=c++20 -Wall -c person.cpp
+g++  main.o person.o -o cmake-build-debug/memory-tests
+root@dc14b070ab1c:/development/unitec/master-class-alpha/rule-of-three# ./cmake-build-debug/memory-tests
+Juan Angel
+17
+Minor
+
+Juan Angel
+17
+Minor
+
+Function Call ------
+Print All
+Juan Angel
+17
+
+```
+
+At least it is not crashing!
+Is it OK?
+
+### Memory Check
+
+```shell
+
+root@dc14b070ab1c:/development/unitec/master-class-alpha/rule-of-three# valgrind --leak-check=full ./cmake-build-debug/memory-tests
+==117== Memcheck, a memory error detector
+==117== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==117== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==117== Command: ./cmake-build-debug/memory-tests
+==117==
+Juan Angel
+17
+Minor
+
+Juan Angel
+17
+Minor
+
+Function Call ------
+Print All
+Juan Angel
+17
+
+==117==
+==117== HEAP SUMMARY:
+==117==     in use at exit: 0 bytes in 0 blocks
+==117==   total heap usage: 6 allocs, 6 frees, 74,797 bytes allocated
+==117==
+==117== All heap blocks were freed -- no leaks are possible
+==117==
+==117== For lists of detected and suppressed errors, rerun with: -s
+==117== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+```
