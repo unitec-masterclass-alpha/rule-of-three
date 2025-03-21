@@ -18,6 +18,16 @@ Person::~Person() {
         delete[] _name;
 }
 
+const Person & Person::operator=(const Person &other) {
+        if (this != &other) {
+                delete[] _name;
+                _name = new char[strlen(other._name) + 1];
+                strcpy(_name, other._name);
+                _age = other._age;
+        }
+        return *this;
+}
+
 string Person::GetName() const {
         return _name;
 }
